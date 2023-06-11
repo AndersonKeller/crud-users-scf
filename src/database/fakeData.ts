@@ -1,4 +1,6 @@
-export const fakeData: any[] = [
+import { iUser } from "../interfaces/user.interfaces";
+
+export const fakeData: iUser[] = [
   {
     id: 1,
     name: "João Oliveira",

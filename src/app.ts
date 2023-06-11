@@ -1,3 +1,4 @@
+import { usersRouter } from "./routes/users.routes";
 import { userRouter } from "./routes/user.routes";
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -30,6 +31,7 @@ app.get("/", function (req: Request, res: Response) {
   `);
 });
 app.use("/user", userRouter);
+app.use("/users", usersRouter);
 // app.get("/user", teste1.getUser);
 // app.get("/users", teste1.getUsers);
 // app.post("/users", teste2);
