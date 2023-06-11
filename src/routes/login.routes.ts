@@ -4,7 +4,7 @@ import { ensureDataIsValidMiddleware } from "./../middlewares/ensureDataIsValid.
 import { Router } from "express";
 
 export const loginRouter: Router = Router();
-
+//login, para validar as rules, gera um token
 loginRouter.post(
   "",
   ensureDataIsValidMiddleware(createLoginSchema),

@@ -1,5 +1,29 @@
 # Este é um teste para desenvolvedores
 
+Para rodar o projeto:
+crie um arquivo .env e adicione o conteúdo da .env.example adicionando um valor para o seu conteúdo.
+
+    instale as dependências:
+        npm install
+        or
+        yarn
+
+    rode o comando:
+        yarn start
+
+    Pronto!
+
+Criei um serviço de login para criar permissões e regras de update e remoção.
+Separei os arquivos em routes, controllers e services.
+Fiz uso do Typescript, juntamente com o zod para validções e criação de schemas e interfaces.
+
+Os arquivos de teste ainda estão no projeto, deixei para fins de consulta sobre as tarefas.
+as rotas
+
+segue tambem no arquivo um json para as rotas no Insomnia.
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Insomnia_SCF_crud_users.json)
+
 # possui 5 testes
 
 ## Introdução
@@ -14,7 +38,7 @@ Fique a vontade para fazer modificaçoes nos serviços, comentários em código,
 
 ## teste1.js
 
-GET em /user 
+GET em /user
 
 Possuimos neste arquivo um serviço que faz uma busca no banco fake e retorna um registro.
 Este código funciona, mas é possivel melhorar.
@@ -40,4 +64,3 @@ Retorne quantas vezes determinado usuário foi lido no teste1.
 ## teste 6
 
 Definina uma forma de criar permissão para o usuario, defina se o usuário pode deletar ou atualizar usuários. Crie um middleware para validar essas permissões e adicione no teste4 e teste3.
-

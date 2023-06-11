@@ -12,13 +12,15 @@ import { ensureExistsUserMiddleware } from "../middlewares/ensureExistsUser.midd
 import { ensureIsAdminMiddleware } from "../middlewares/ensureIsAdmin.middleware";
 import { ensureTokenvalidMiddleware } from "../middlewares/ensureTokenIsvalid.middleware";
 export const usersRouter: Router = Router();
-
+//pega todos os users
 usersRouter.get("", getUsersController);
+//cria um usuário, valida os campos enviados com o schema
 usersRouter.post(
   "",
   ensureDataIsValidMiddleware(createUserSchema),
   createUserController
 );
+//remove um usuário, somente um admin pode remover um user
 usersRouter.delete(
   "/:id",
   ensureTokenvalidMiddleware,
@@ -26,6 +28,8 @@ usersRouter.delete(
   ensureExistsUserMiddleware,
   removeUserController
 );
+//atualiza um user, somente é possível atualizar a si mesmo
+//um admin pode atualizar os demais
 usersRouter.patch(
   "/:id",
   ensureTokenvalidMiddleware,
@@ -33,6 +37,7 @@ usersRouter.patch(
   ensureDataIsValidMiddleware(updateUserSchema),
   updateUserController
 );
+//conta o numero de consultas que um usuário teve pelo seu id
 usersRouter.get(
   "/access/:id",
   ensureExistsUserMiddleware,
