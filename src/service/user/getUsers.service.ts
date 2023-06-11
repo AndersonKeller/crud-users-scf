@@ -1,6 +1,11 @@
 import { fakeData } from "../../database/fakeData";
-import { iUser } from "../../interfaces/user.interfaces";
-export function getUsersService(): iUser[] {
+import { iReturnUser, iUser } from "../../interfaces/user.interfaces";
+import {
+  returnUserSchema,
+  returnUsersSchema,
+} from "../../schemas/user.schemas";
+export function getUsersService(): iReturnUser[] {
   const data: iUser[] = fakeData;
-  return data;
+  const returnData = returnUsersSchema.parse(data);
+  return returnData;
 }

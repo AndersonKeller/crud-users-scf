@@ -1,17 +1,15 @@
-// var data =  require("./fakeData");
+var data = require("./database/fakeData");
 
-// module.exports = function(req, res){
+module.exports = function (req, res) {
+  var name = req.body.name;
+  var jov = req.body.job;
 
-//     var name =  req.body.name;
-//     var jov =  req.body.job;
+  var newUser = {
+    name: name,
+    job: job,
+  };
 
-//     var newUser = {
-//         name: name,
-//         job: job,
-//     }
+  data.push(newUser);
 
-//     data.push(newUser)
-
-//     res.send(newUser);
-
-// };
+  res.send(newUser);
+};

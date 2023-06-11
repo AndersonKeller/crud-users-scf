@@ -1,13 +1,11 @@
-// var data =  require("./fakeData");
+var data = require("./database/fakeData");
 
-// module.exports =  function(req, res) {
+module.exports = function (req, res) {
+  var id = req.query.id;
 
-//     var id =  req.query.id;
+  const reg = data.find((d) => id == id);
+  reg.name = req.body.name;
+  reg.job = req.body.job;
 
-//     const reg = data.find(d => id == id);
-//     reg.name = req.body.name;
-//     reg.job = req.body.job;
-
-//     res.send(reg);
-
-// };
+  res.send(reg);
+};

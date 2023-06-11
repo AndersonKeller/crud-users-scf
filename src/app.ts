@@ -1,16 +1,11 @@
+import { loginRouter } from "./routes/login.routes";
 import { usersRouter } from "./routes/users.routes";
 import { userRouter } from "./routes/user.routes";
 var express = require("express");
 var bodyParser = require("body-parser");
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import { handleErrors } from "../errors";
 var app = express();
-
-var teste1 = require("./teste1");
-var teste2 = require("./teste2");
-var teste3 = require("./teste3");
-var teste4 = require("./teste4");
-var teste5 = require("./teste5");
 
 app.set("view engine", "jade");
 
@@ -32,6 +27,7 @@ app.get("/", function (req: Request, res: Response) {
 });
 app.use("/user", userRouter);
 app.use("/users", usersRouter);
+app.use("/login", loginRouter);
 // app.get("/user", teste1.getUser);
 // app.get("/users", teste1.getUsers);
 // app.post("/users", teste2);
