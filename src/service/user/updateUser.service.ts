@@ -12,7 +12,6 @@ export function updateUserService(
   const indexUser: number | undefined = data.findIndex(
     (user: iUser) => user.id === userId
   );
-  console.log(findUser);
   const updateUser: any = {
     ...findUser!,
     ...userData,

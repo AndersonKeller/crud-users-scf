@@ -2,6 +2,7 @@ import { ensureDataIsValidMiddleware } from "./../middlewares/ensureDataIsValid.
 import { Router } from "express";
 import {
   createUserController,
+  getUserAccessController,
   getUsersController,
   removeUserController,
   updateUserController,
@@ -22,4 +23,9 @@ usersRouter.patch(
   ensureExistsUserMiddleware,
   ensureDataIsValidMiddleware(updateUserSchema),
   updateUserController
+);
+usersRouter.get(
+  "/access/:id",
+  ensureExistsUserMiddleware,
+  getUserAccessController
 );

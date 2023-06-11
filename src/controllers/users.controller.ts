@@ -4,6 +4,7 @@ import { iCreateUser, iUpdateUser, iUser } from "../interfaces/user.interfaces";
 import { createUserService } from "../service/user/createUser.service";
 import { removeUserService } from "../service/user/removeUser.service";
 import { updateUserService } from "../service/user/updateUser.service";
+import { getUserAccessService } from "../service/user/getUserAccess.service";
 export function getUsersController(req: Request, res: Response): Response {
   const users: iUser[] = getUsersService();
   return res.status(200).json(users);
@@ -23,4 +24,9 @@ export function updateUserController(req: Request, res: Response): Response {
   const userData: iUpdateUser = req.body;
   const user: iUser = updateUserService(userId, userData);
   return res.status(200).json(user);
+}
+export function getUserAccessController(req: Request, res: Response): Response {
+  const userId: number = parseInt(req.params.id);
+  const acess: string = getUserAccessService(userId);
+  return res.status(200).json({ message: acess });
 }
