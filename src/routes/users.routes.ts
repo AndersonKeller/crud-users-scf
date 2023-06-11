@@ -4,8 +4,9 @@ import {
   createUserController,
   getUsersController,
   removeUserController,
+  updateUserController,
 } from "../controllers/users.controller";
-import { createUserSchema } from "../schemas/user.schemas";
+import { createUserSchema, updateUserSchema } from "../schemas/user.schemas";
 import { ensureExistsUserMiddleware } from "../middlewares/ensureExistsUser.middleware";
 export const usersRouter: Router = Router();
 
@@ -16,3 +17,9 @@ usersRouter.post(
   createUserController
 );
 usersRouter.delete("/:id", ensureExistsUserMiddleware, removeUserController);
+usersRouter.patch(
+  "/:id",
+  ensureExistsUserMiddleware,
+  ensureDataIsValidMiddleware(updateUserSchema),
+  updateUserController
+);

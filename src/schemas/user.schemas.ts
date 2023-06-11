@@ -7,3 +7,7 @@ export const createUserSchema = z.object({
 export const returnUserSchema = createUserSchema.extend({
   id: z.number(),
 });
+export const updateUserSchema = z.object({
+  name: z.string().optional(),
+  job: z.string().optional(),
+});
